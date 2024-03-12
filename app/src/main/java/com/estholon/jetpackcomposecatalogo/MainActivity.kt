@@ -90,17 +90,19 @@ class MainActivity : ComponentActivity() {
                     val myOptions = getOptions(listOf("Ejemplo 1", "Ejemplo 2", "Ejemplo 3"))
                     var selected by rememberSaveable { mutableStateOf("") }
 
+                    var show by rememberSaveable {
+                        mutableStateOf(false)
+                    }
+
                     Column(Modifier.fillMaxSize()){
 
-                        MyRadioButton(selected, {selected = it})
-                        MyTriStateCheckBox()
-                        myOptions.forEach{
-                            MyCheckBox(it)
+                        Box(Modifier.fillMaxSize(), contentAlignment = Alignment.Center){
+
+                            Button(onClick = { show = true }) {
+                                Text(text = "Mostrar diálogo")
+                            }
+                            MyDialog(show=show,{ Log.i("Dialog","Confirmado") },{ show = false })
                         }
-                        MyCard()
-                        MyDivider()
-                        MyBadgedBox()
-                        MyDropDownMenu()
                     }
 
 
@@ -576,6 +578,7 @@ fun GreetingPreview() {
             MyDivider()
             MyBadgedBox()
             MyDropDownMenu()
+            BasicSlider()
         }
     }
 }
