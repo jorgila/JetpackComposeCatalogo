@@ -88,7 +88,7 @@ class MainActivity : ComponentActivity() {
                 ) {
                     var myText by rememberSaveable { mutableStateOf("") }
                     val myOptions = getOptions(listOf("Ejemplo 1", "Ejemplo 2", "Ejemplo 3"))
-                    var selected by rememberSaveable { mutableStateOf("") }
+
 
                     var show by rememberSaveable {
                         mutableStateOf(false)
@@ -101,7 +101,13 @@ class MainActivity : ComponentActivity() {
                             Button(onClick = { show = true }) {
                                 Text(text = "Mostrar diálogo")
                             }
-                            MyDialog(show=show,{ Log.i("Dialog","Confirmado") },{ show = false })
+                            // MyDialog(show=show,{ Log.i("Dialog","Confirmado") },{ show = false })
+                            MyConfirmationDialog(
+                                show = show,
+                                onConfirm = { show = false },
+                                onDismiss = { show = false }
+                            )
+
                         }
                     }
 
@@ -460,15 +466,15 @@ fun MyTriStateCheckBox(){
 fun MyRadioButton(name: String, onItemSelected: (String) -> Unit){
 
     Column(Modifier.fillMaxWidth()){
-        Row(){
+        Row(verticalAlignment = Alignment.CenterVertically, modifier = Modifier.padding(6.dp)){
             RadioButton(selected = name == "Ejemplo 1", onClick = { onItemSelected("Ejemplo 1") })
             Text(text = "Ejemplo 1")
         }
-        Row(){
+        Row(verticalAlignment = Alignment.CenterVertically, modifier = Modifier.padding(6.dp)){
             RadioButton(selected = name == "Ejemplo 2", onClick = { onItemSelected("Ejemplo 2") })
             Text(text = "Ejemplo 2")
         }
-        Row(){
+        Row(verticalAlignment = Alignment.CenterVertically, modifier = Modifier.padding(6.dp)){
             RadioButton(selected = name == "Ejemplo 3", onClick = { onItemSelected("Ejemplo 3")})
             Text(text = "Ejemplo 3")
         }
