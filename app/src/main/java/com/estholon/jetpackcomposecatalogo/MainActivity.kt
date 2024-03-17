@@ -86,6 +86,9 @@ class MainActivity : ComponentActivity() {
                     modifier = Modifier.fillMaxSize(),
                     color = MaterialTheme.colorScheme.background
                 ) {
+
+                    VerticalRecyclerView()
+                    /*
                     var myText by rememberSaveable { mutableStateOf("") }
                     val myOptions = getOptions(listOf("Ejemplo 1", "Ejemplo 2", "Ejemplo 3"))
 
@@ -110,7 +113,7 @@ class MainActivity : ComponentActivity() {
 
                         }
                     }
-
+*/
 
                 }
             }
