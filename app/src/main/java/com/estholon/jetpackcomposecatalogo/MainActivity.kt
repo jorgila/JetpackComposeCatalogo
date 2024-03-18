@@ -6,6 +6,7 @@ import android.view.RoundedCorner
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
 import androidx.compose.foundation.BorderStroke
+import androidx.compose.foundation.ExperimentalFoundationApi
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.background
 import androidx.compose.foundation.border
@@ -76,6 +77,8 @@ import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import com.estholon.jetpackcomposecatalogo.ui.theme.JetpackComposeCatalogoTheme
 
+@ExperimentalMaterial3Api
+@ExperimentalFoundationApi
 class MainActivity : ComponentActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -87,7 +90,7 @@ class MainActivity : ComponentActivity() {
                     color = MaterialTheme.colorScheme.background
                 ) {
 
-                    VerticalRecyclerView()
+                    ScaffoldExample()
                     /*
                     var myText by rememberSaveable { mutableStateOf("") }
                     val myOptions = getOptions(listOf("Ejemplo 1", "Ejemplo 2", "Ejemplo 3"))
@@ -197,31 +200,7 @@ fun MyBox(name: String, modifier: Modifier = Modifier) {
     }
 }
 
-@Composable
-fun MyText() {
-    Column(Modifier.fillMaxSize()) {
-        Text(text = "Esto es un ejemplo")
-        Text(text = "Esto es un ejemplo", color = Color.Blue)
-        Text(text = "Esto es un ejemplo", fontWeight = FontWeight.ExtraBold)
-        Text(text = "Esto es un ejemplo", style = TextStyle(fontFamily = FontFamily.Cursive))
-        Text(
-            text = "Esto es un ejemplo",
-            style = TextStyle(textDecoration = TextDecoration.LineThrough)
-        )
-        Text(
-            text = "Esto es un ejemplo",
-            style = TextStyle(textDecoration = TextDecoration.Underline)
-        )
-        Text(
-            text = "Esto es un ejemplo", style = TextStyle(
-                textDecoration = TextDecoration.combine(
-                    listOf(TextDecoration.LineThrough, TextDecoration.Underline)
-                )
-            )
-        )
-        Text(text = "Esto es una prueba", fontSize = 30.sp)
-    }
-}
+
 
 @Composable
 fun MyTextField(name: String, onValueChanged: (String) -> Unit) {
