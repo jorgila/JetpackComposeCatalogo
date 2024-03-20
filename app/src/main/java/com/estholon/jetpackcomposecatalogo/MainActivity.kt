@@ -1,12 +1,9 @@
 package com.estholon.jetpackcomposecatalogo
 
 import android.os.Bundle
-import android.util.Log
-import android.view.RoundedCorner
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
 import androidx.compose.foundation.BorderStroke
-import androidx.compose.foundation.ExperimentalFoundationApi
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.background
 import androidx.compose.foundation.border
@@ -21,12 +18,10 @@ import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.width
-import androidx.compose.foundation.magnifier
 import androidx.compose.foundation.shape.CircleShape
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.Star
-import androidx.compose.material.icons.rounded.Star
 import androidx.compose.material.icons.rounded.Stars
 import androidx.compose.material3.Badge
 import androidx.compose.material3.BadgedBox
@@ -47,10 +42,8 @@ import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.OutlinedButton
 import androidx.compose.material3.OutlinedTextField
 import androidx.compose.material3.RadioButton
-import androidx.compose.material3.RadioButtonDefaults
 import androidx.compose.material3.Surface
 import androidx.compose.material3.Switch
-import androidx.compose.material3.SwitchColors
 import androidx.compose.material3.SwitchDefaults
 import androidx.compose.material3.Text
 import androidx.compose.material3.TextButton
@@ -58,6 +51,7 @@ import androidx.compose.material3.TextField
 import androidx.compose.material3.TextFieldDefaults
 import androidx.compose.material3.TriStateCheckbox
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.compositionLocalOf
 import androidx.compose.runtime.getValue
 import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.saveable.rememberSaveable
@@ -68,17 +62,16 @@ import androidx.compose.ui.draw.clip
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.state.ToggleableState
-import androidx.compose.ui.text.TextStyle
-import androidx.compose.ui.text.font.FontFamily
-import androidx.compose.ui.text.font.FontWeight
-import androidx.compose.ui.text.style.TextDecoration
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
-import androidx.compose.ui.unit.sp
+import androidx.navigation.NavType
+import androidx.navigation.compose.NavHost
+import androidx.navigation.compose.composable
+import androidx.navigation.compose.rememberNavController
+import androidx.navigation.navArgument
+import com.estholon.jetpackcomposecatalogo.model.Routes
 import com.estholon.jetpackcomposecatalogo.ui.theme.JetpackComposeCatalogoTheme
 
-@ExperimentalMaterial3Api
-@ExperimentalFoundationApi
 class MainActivity : ComponentActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -90,7 +83,34 @@ class MainActivity : ComponentActivity() {
                     color = MaterialTheme.colorScheme.background
                 ) {
 
-                    ScaffoldExample()
+                    val navigationController = rememberNavController()
+                    NavHost(navController = navigationController, startDestination = Routes.Pantalla1.route){
+                        composable(Routes.Pantalla1.route) { Screen1(navigationController) }
+                        composable(Routes.Pantalla2.route) { Screen2(navigationController) }
+                        composable(Routes.Pantalla3.route) { Screen3(navigationController) }
+                        composable(
+                            Routes.Pantalla4.route,
+                            arguments = listOf(navArgument("age") {
+                                type = NavType.IntType
+                            })) { backStackEntry ->
+                            Screen4(
+                                navigationController,
+                                backStackEntry.arguments?.getInt("age") ?: 0
+                            )
+                        }
+                        composable(
+                            Routes.Pantalla5.route,
+                            arguments = listOf(navArgument("name", { defaultValue = "" }))
+                        ) { backStackEntry ->
+                            Screen5(
+                                navigationController,
+                                backStackEntry.arguments?.getString("name")
+                            )
+                        }
+                    }
+
+
+                    //ScaffoldExample()
                     /*
                     var myText by rememberSaveable { mutableStateOf("") }
                     val myOptions = getOptions(listOf("Ejemplo 1", "Ejemplo 2", "Ejemplo 3"))
