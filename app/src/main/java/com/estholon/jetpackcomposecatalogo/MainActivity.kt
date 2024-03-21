@@ -51,7 +51,6 @@ import androidx.compose.material3.TextField
 import androidx.compose.material3.TextFieldDefaults
 import androidx.compose.material3.TriStateCheckbox
 import androidx.compose.runtime.Composable
-import androidx.compose.runtime.compositionLocalOf
 import androidx.compose.runtime.getValue
 import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.saveable.rememberSaveable
@@ -69,6 +68,7 @@ import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
 import androidx.navigation.compose.rememberNavController
 import androidx.navigation.navArgument
+import com.estholon.jetpackcomposecatalogo.model.CheckInfo
 import com.estholon.jetpackcomposecatalogo.model.Routes
 import com.estholon.jetpackcomposecatalogo.ui.theme.JetpackComposeCatalogoTheme
 
@@ -278,50 +278,6 @@ fun MyOutlinedTextField() {
     }
 }
 
-@Composable
-fun MyButtonExample() {
-    var enabled by rememberSaveable { mutableStateOf(true) }
-    Column(
-        Modifier
-            .fillMaxSize()
-            .padding(24.dp)
-    ) {
-        Button(
-            onClick = { enabled = false },
-            enabled = enabled,
-            colors = ButtonDefaults.buttonColors(
-                containerColor = Color.Red,
-                contentColor = Color.Blue,
-                disabledContentColor = Color.Green,
-                disabledContainerColor = Color.Cyan
-            ),
-            border = BorderStroke(12.dp,Color.Blue),
-            shape = RoundedCornerShape(0),
-            modifier = Modifier
-                .fillMaxWidth()
-                .height(70.dp)
-        ) {
-            Text(text = "BUTTON")
-        }
-        OutlinedButton(onClick = { },
-            colors = ButtonDefaults.buttonColors(
-                containerColor = Color.Red,
-                contentColor = Color.Blue,
-                disabledContentColor = Color.Green,
-                disabledContainerColor = Color.Cyan
-            ),
-            border = BorderStroke(12.dp,Color.Blue),
-            modifier = Modifier
-                .fillMaxWidth()
-                .height(70.dp)
-        ) {
-            Text(text = "OUTLINED BUTTON")
-        }
-        TextButton(onClick = { }) {
-            Text(text = "TEXT BUTTON")
-        }
-    }
-}
 
 @Composable
 fun MyImageExample(){

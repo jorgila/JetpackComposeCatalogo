@@ -1,4 +1,4 @@
-package com.estholon.jetpackcomposecatalogo
+package com.estholon.jetpackcomposecatalogo.model
 
 data class CheckInfo (
     val title: String,
