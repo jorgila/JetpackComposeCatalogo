@@ -26,7 +26,6 @@ import androidx.compose.material.icons.rounded.Stars
 import androidx.compose.material3.Badge
 import androidx.compose.material3.BadgedBox
 import androidx.compose.material3.Button
-import androidx.compose.material3.ButtonDefaults
 import androidx.compose.material3.Card
 import androidx.compose.material3.CardDefaults
 import androidx.compose.material3.Checkbox
@@ -39,14 +38,12 @@ import androidx.compose.material3.ExperimentalMaterial3Api
 import androidx.compose.material3.Icon
 import androidx.compose.material3.LinearProgressIndicator
 import androidx.compose.material3.MaterialTheme
-import androidx.compose.material3.OutlinedButton
 import androidx.compose.material3.OutlinedTextField
 import androidx.compose.material3.RadioButton
 import androidx.compose.material3.Surface
 import androidx.compose.material3.Switch
 import androidx.compose.material3.SwitchDefaults
 import androidx.compose.material3.Text
-import androidx.compose.material3.TextButton
 import androidx.compose.material3.TextField
 import androidx.compose.material3.TextFieldDefaults
 import androidx.compose.material3.TriStateCheckbox
@@ -63,13 +60,7 @@ import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.state.ToggleableState
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
-import androidx.navigation.NavType
-import androidx.navigation.compose.NavHost
-import androidx.navigation.compose.composable
-import androidx.navigation.compose.rememberNavController
-import androidx.navigation.navArgument
 import com.estholon.jetpackcomposecatalogo.model.CheckInfo
-import com.estholon.jetpackcomposecatalogo.model.Routes
 import com.estholon.jetpackcomposecatalogo.ui.theme.JetpackComposeCatalogoTheme
 
 class MainActivity : ComponentActivity() {
@@ -82,7 +73,8 @@ class MainActivity : ComponentActivity() {
                     modifier = Modifier.fillMaxSize(),
                     color = MaterialTheme.colorScheme.background
                 ) {
-
+                    CrossfadeAnimation()
+                  /*
                     val navigationController = rememberNavController()
                     NavHost(navController = navigationController, startDestination = Routes.Pantalla1.route){
                         composable(Routes.Pantalla1.route) { Screen1(navigationController) }
@@ -109,7 +101,7 @@ class MainActivity : ComponentActivity() {
                         }
                     }
 
-
+                    */
                     //ScaffoldExample()
                     /*
                     var myText by rememberSaveable { mutableStateOf("") }

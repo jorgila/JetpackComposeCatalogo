@@ -123,5 +123,5 @@ fun MyExtendedFloatingActionButton(){
     ExtendedFloatingActionButton(onClick = { },
         icon = {Icon(imageVector = Icons.Filled.Favorite, contentDescription = "Floating action button")},
         text = {Text(text = "Extended")}
-    }
+    )
 }
