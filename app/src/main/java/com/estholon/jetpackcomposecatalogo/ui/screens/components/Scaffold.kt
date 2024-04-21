@@ -1,7 +1,6 @@
-package com.estholon.jetpackcomposecatalogo
+package com.estholon.jetpackcomposecatalogo.ui.screens.components
 
 import android.annotation.SuppressLint
-import androidx.compose.foundation.background
 import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.fillMaxWidth
@@ -45,7 +44,6 @@ import androidx.compose.runtime.setValue
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.unit.dp
-import kotlinx.coroutines.Job
 import kotlinx.coroutines.launch
 
 @SuppressLint("UnusedMaterial3ScaffoldPaddingParameter")
@@ -70,7 +68,8 @@ fun ScaffoldExample(){
                     snackbarHostState.showSnackbar("Has pulsado $it")
                 } }, onClickDrawer = {
                     coroutineScope.launch { drawerState.apply { if (isClosed) open() else close() } }
-                })},
+                })
+            },
             snackbarHost = {
                 SnackbarHost(
                     hostState = snackbarHostState,

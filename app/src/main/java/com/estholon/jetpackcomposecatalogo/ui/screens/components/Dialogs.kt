@@ -1,17 +1,13 @@
-package com.estholon.jetpackcomposecatalogo
+package com.estholon.jetpackcomposecatalogo.ui.screens.components
 
-import android.graphics.drawable.Drawable
 import androidx.annotation.DrawableRes
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.background
-import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
-import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
-import androidx.compose.foundation.layout.width
 import androidx.compose.foundation.shape.CircleShape
 import androidx.compose.material3.AlertDialog
 import androidx.compose.material3.Divider
@@ -28,12 +24,12 @@ import androidx.compose.ui.draw.clip
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.layout.ContentScale
 import androidx.compose.ui.res.painterResource
-import androidx.compose.ui.text.font.FontStyle
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import androidx.compose.ui.window.Dialog
 import androidx.compose.ui.window.DialogProperties
+import com.estholon.jetpackcomposecatalogo.R
 
 @Composable
 fun MyDialog(
@@ -101,9 +97,9 @@ fun MyCustomDialog(
                     .fillMaxWidth()
             ) {
                 MyTitle(title = "Set up backup account")
-                MyAccountItem("ejemplo1@gmail.com",R.drawable.avatar)
-                MyAccountItem("ejemplo2@gmail.com",R.drawable.avatar)
-                MyAccountItem("ejemplo3@gmail.com",R.drawable.avatar)
+                MyAccountItem("ejemplo1@gmail.com", R.drawable.avatar)
+                MyAccountItem("ejemplo2@gmail.com", R.drawable.avatar)
+                MyAccountItem("ejemplo3@gmail.com", R.drawable.avatar)
             }
         }
     }

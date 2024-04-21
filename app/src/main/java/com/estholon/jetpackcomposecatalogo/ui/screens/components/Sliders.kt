@@ -1,4 +1,4 @@
-package com.estholon.jetpackcomposecatalogo
+package com.estholon.jetpackcomposecatalogo.ui.screens.components
 
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.padding

@@ -1,14 +1,10 @@
-package com.estholon.jetpackcomposecatalogo
+package com.estholon.jetpackcomposecatalogo.ui.screens.components
 
-import android.graphics.drawable.Icon
-import android.widget.Space
 import androidx.compose.animation.AnimatedVisibility
 import androidx.compose.animation.Crossfade
 import androidx.compose.animation.animateColorAsState
 import androidx.compose.animation.core.animateDpAsState
-import androidx.compose.animation.core.animateSizeAsState
 import androidx.compose.animation.core.tween
-import androidx.compose.animation.fadeOut
 import androidx.compose.animation.slideInHorizontally
 import androidx.compose.animation.slideOutHorizontally
 import androidx.compose.foundation.background
@@ -21,7 +17,6 @@ import androidx.compose.foundation.layout.size
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.SensorDoor
 import androidx.compose.material3.Button
-import androidx.compose.material3.Icon
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.mutableStateOf
@@ -126,11 +121,11 @@ fun CrossfadeAnimation(){
     }
 }
 
-fun getComponentTypeRandom(): ComponentType{
+fun getComponentTypeRandom(): ComponentType {
     return when(nextInt(from = 0, until = 3)){
-        0->ComponentType.Image
-        1->ComponentType.Text
-        2->ComponentType.Box
+        0-> ComponentType.Image
+        1-> ComponentType.Text
+        2-> ComponentType.Box
         else -> ComponentType.Error
     }
 }

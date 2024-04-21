@@ -1,8 +1,5 @@
-package com.estholon.jetpackcomposecatalogo
+package com.estholon.jetpackcomposecatalogo.ui.screens.components
 
-import android.os.Bundle
-import androidx.activity.ComponentActivity
-import androidx.activity.compose.setContent
 import androidx.compose.foundation.BorderStroke
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.background
@@ -40,7 +37,6 @@ import androidx.compose.material3.LinearProgressIndicator
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.OutlinedTextField
 import androidx.compose.material3.RadioButton
-import androidx.compose.material3.Surface
 import androidx.compose.material3.Switch
 import androidx.compose.material3.SwitchDefaults
 import androidx.compose.material3.Text
@@ -58,83 +54,9 @@ import androidx.compose.ui.draw.clip
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.state.ToggleableState
-import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
+import com.estholon.jetpackcomposecatalogo.R
 import com.estholon.jetpackcomposecatalogo.model.CheckInfo
-import com.estholon.jetpackcomposecatalogo.ui.theme.JetpackComposeCatalogoTheme
-
-class MainActivity : ComponentActivity() {
-    override fun onCreate(savedInstanceState: Bundle?) {
-        super.onCreate(savedInstanceState)
-        setContent {
-            JetpackComposeCatalogoTheme {
-                // A surface container using the 'background' color from the theme
-                Surface(
-                    modifier = Modifier.fillMaxSize(),
-                    color = MaterialTheme.colorScheme.background
-                ) {
-                    CrossfadeAnimation()
-                  /*
-                    val navigationController = rememberNavController()
-                    NavHost(navController = navigationController, startDestination = Routes.Pantalla1.route){
-                        composable(Routes.Pantalla1.route) { Screen1(navigationController) }
-                        composable(Routes.Pantalla2.route) { Screen2(navigationController) }
-                        composable(Routes.Pantalla3.route) { Screen3(navigationController) }
-                        composable(
-                            Routes.Pantalla4.route,
-                            arguments = listOf(navArgument("age") {
-                                type = NavType.IntType
-                            })) { backStackEntry ->
-                            Screen4(
-                                navigationController,
-                                backStackEntry.arguments?.getInt("age") ?: 0
-                            )
-                        }
-                        composable(
-                            Routes.Pantalla5.route,
-                            arguments = listOf(navArgument("name", { defaultValue = "" }))
-                        ) { backStackEntry ->
-                            Screen5(
-                                navigationController,
-                                backStackEntry.arguments?.getString("name")
-                            )
-                        }
-                    }
-
-                    */
-                    //ScaffoldExample()
-                    /*
-                    var myText by rememberSaveable { mutableStateOf("") }
-                    val myOptions = getOptions(listOf("Ejemplo 1", "Ejemplo 2", "Ejemplo 3"))
-
-
-                    var show by rememberSaveable {
-                        mutableStateOf(false)
-                    }
-
-                    Column(Modifier.fillMaxSize()){
-
-                        Box(Modifier.fillMaxSize(), contentAlignment = Alignment.Center){
-
-                            Button(onClick = { show = true }) {
-                                Text(text = "Mostrar diálogo")
-                            }
-                            // MyDialog(show=show,{ Log.i("Dialog","Confirmado") },{ show = false })
-                            MyConfirmationDialog(
-                                show = show,
-                                onConfirm = { show = false },
-                                onDismiss = { show = false }
-                            )
-
-                        }
-                    }
-*/
-
-                }
-            }
-        }
-    }
-}
 
 @Composable
 fun getOptions(titles:List<String>):List<CheckInfo>{
@@ -375,26 +297,26 @@ fun MyCheckBox(checkInfo: CheckInfo){
     var state by rememberSaveable {
         mutableStateOf(true)
     }
-        Row(
-            Modifier
-                .padding(8.dp),
-            verticalAlignment = Alignment.CenterVertically
-            ) {
-            Checkbox(
-                checked = checkInfo.selected,
-                onCheckedChange = { checkInfo.onCheckedChange(!checkInfo.selected) },
-                enabled = true,
-                colors = CheckboxDefaults.colors(
-                    checkedColor = Color.Black,
-                    uncheckedColor = Color.Black,
-                    checkmarkColor = Color.Black,
-                    disabledCheckedColor = Color.Black
-                )
+    Row(
+        Modifier
+            .padding(8.dp),
+        verticalAlignment = Alignment.CenterVertically
+    ) {
+        Checkbox(
+            checked = checkInfo.selected,
+            onCheckedChange = { checkInfo.onCheckedChange(!checkInfo.selected) },
+            enabled = true,
+            colors = CheckboxDefaults.colors(
+                checkedColor = Color.Black,
+                uncheckedColor = Color.Black,
+                checkmarkColor = Color.Black,
+                disabledCheckedColor = Color.Black
             )
-            MySpacerH(8)
-            Text(text = checkInfo.title)
+        )
+        MySpacerH(8)
+        Text(text = checkInfo.title)
 
-        }
+    }
 
 }
 
@@ -521,20 +443,6 @@ fun MyDropDownMenu(){
                     }
                 )
             }
-        }
-    }
-}
-
-@Preview(showBackground = true)
-@Composable
-fun GreetingPreview() {
-    JetpackComposeCatalogoTheme {
-        Column(Modifier.fillMaxSize()) {
-            MyCard()
-            MyDivider()
-            MyBadgedBox()
-            MyDropDownMenu()
-            BasicSlider()
         }
     }
 }

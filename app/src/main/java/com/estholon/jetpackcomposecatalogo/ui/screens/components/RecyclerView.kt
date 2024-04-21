@@ -1,6 +1,5 @@
-package com.estholon.jetpackcomposecatalogo
+package com.estholon.jetpackcomposecatalogo.ui.screens.components
 
-import android.util.Log
 import android.widget.Toast
 import androidx.compose.foundation.BorderStroke
 import androidx.compose.foundation.ExperimentalFoundationApi
@@ -37,13 +36,14 @@ import com.estholon.jetpackcomposecatalogo.model.Superhero
 import androidx.compose.runtime.getValue
 import androidx.compose.runtime.remember
 import androidx.compose.runtime.rememberCoroutineScope
+import com.estholon.jetpackcomposecatalogo.R
 import kotlinx.coroutines.launch
 
 @Composable
 fun HorizontalRecyclerView(){
     val context = LocalContext.current
     LazyRow(horizontalArrangement = Arrangement.spacedBy(8.dp)) {
-        items(getSuperheroes()){superhero ->
+        items(getSuperheroes()){ superhero ->
             ItemRecyclerView(superhero = superhero){
                 Toast.makeText(context,it.superheroName,Toast.LENGTH_SHORT).show()
             }
@@ -62,7 +62,7 @@ fun VerticalRecyclerView(){
             verticalArrangement = Arrangement.spacedBy(8.dp),
             modifier = Modifier.weight(1f)
         ) {
-            items(getSuperheroes()){superhero ->
+            items(getSuperheroes()){ superhero ->
                 ItemRecyclerView(superhero = superhero){
                     Toast.makeText(context,it.superheroName,Toast.LENGTH_SHORT).show()
                 }
@@ -97,7 +97,7 @@ fun GridRecyclerView(){
         columns = GridCells.Fixed(2),
         contentPadding = PaddingValues(horizontal = 16.dp, vertical = 16.dp)
     ) {
-        items(getSuperheroes()){superhero ->
+        items(getSuperheroes()){ superhero ->
             ItemRecyclerView(superhero = superhero){
                 Toast.makeText(context,it.superheroName,Toast.LENGTH_SHORT).show()
             }

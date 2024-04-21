@@ -1,4 +1,4 @@
-package com.estholon.jetpackcomposecatalogo
+package com.estholon.jetpackcomposecatalogo.ui.screens.components
 
 import androidx.compose.foundation.BorderStroke
 import androidx.compose.foundation.layout.Column
