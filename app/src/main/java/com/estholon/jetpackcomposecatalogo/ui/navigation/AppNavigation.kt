@@ -6,6 +6,7 @@ import androidx.navigation.compose.composable
 import androidx.navigation.compose.rememberNavController
 import com.estholon.jetpackcomposecatalogo.ui.navigation.Routes.*
 import com.estholon.jetpackcomposecatalogo.ui.screens.HomeScreen
+import com.estholon.jetpackcomposecatalogo.ui.screens.RecyclerScreen
 import com.estholon.jetpackcomposecatalogo.ui.screens.SignInScreen
 import com.estholon.jetpackcomposecatalogo.ui.screens.SignUpScreen
 import com.estholon.jetpackcomposecatalogo.ui.screens.SplashScreen
@@ -35,6 +36,9 @@ fun AppNavigation(){
         }
         composable(TextScreen.route){
             TextScreen(navController = navController)
+        }
+        composable(RecyclerScreen.route){
+            RecyclerScreen(navController = navController)
         }
     }
 }
